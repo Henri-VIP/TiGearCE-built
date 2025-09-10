@@ -1,0 +1,13 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - init: |
+      sudo apt update
+      sudo apt install -y build-essential wget unzip git
+      # Install CE toolchain
+      wget https://github.com/CE-Programming/toolchain/releases/latest/download/ce-toolchain.tar.gz
+      tar -xzf ce-toolchain.tar.gz
+      cd ce-toolchain && sudo ./install.sh
+      cd ..
+      make
